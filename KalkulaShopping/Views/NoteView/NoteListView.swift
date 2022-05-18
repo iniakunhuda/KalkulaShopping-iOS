@@ -17,24 +17,27 @@ struct NoteListView: View {
                     ForEach(modelData.getActive(), id: \.self) { note in
                         NoteRowView(note: note)
                             .listRowInsets(EdgeInsets())
+                            .accessibilityElement(children: .ignore)
+                            .accessibilityLabel("Note from \(note.name) at \(note.date) with total \(note.total). Click to view detail")
                     }
-                } else {
-                    Text("Click button below to start shopping")
-                        .font(.caption)
-                        .opacity(0.6)
                 }
             }, header: {
                 Text("Shopping")
+                    .accessibilityLabel("New Shopping Section")
             })
             
             
             Section(content: {
                 ForEach(modelData.getInActive(), id: \.self) { note in
                     NoteRowView(note: note)
+                        .opacity(0.6)
                         .listRowInsets(EdgeInsets())
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityLabel("Note from \(note.name) at \(note.date) with total \(note.total). Click to view detail")
                 }
             }, header: {
                 Text("History")
+                    .accessibilityLabel("History Shopping Section")
             })
         }
         .listStyle(.insetGrouped)

@@ -28,4 +28,6 @@ class NoteViewModel: Identifiable, ObservableObject {
     @Published var isActive: Bool = false
     @Published var items: [Item] = []
     @Published var tax: Float = 0
+    
+    @Published var showDatePicker: Bool = false
 }

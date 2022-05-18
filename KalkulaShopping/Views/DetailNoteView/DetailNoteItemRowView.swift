@@ -31,7 +31,6 @@ struct DetailNoteItemRowView: View {
                 if(isEdited) {
                     Button(action: {
                         itemModel.item = item
-                        print("ITEM EDIT:", item)
                         
                         self.isEditClicked = true
                     }, label: {

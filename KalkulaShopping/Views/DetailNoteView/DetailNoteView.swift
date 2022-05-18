@@ -28,19 +28,12 @@ struct DetailNoteView: View {
         
         NavigationView {
             VStack {
+                
                 ScrollView {
                     Form {
                         
                         
                         Section(content: {
-                            
-                            if(note.isActive) {
-                                Button(action: {
-                                    self.isEditNote = true
-                                }, label: {
-                                    Text("Edit")
-                                })
-                            }
                             
                             Group(content: {
                                 HStack {
@@ -60,6 +53,15 @@ struct DetailNoteView: View {
                                 }
                             })
                             
+                            if(note.isActive) {
+                                Button(action: {
+                                    self.isEditNote = true
+                                }, label: {
+                                    Text("Edit")
+                                })
+                                    .accessibilityLabel("Click to Edit Grocery Detail")
+                            }
+                            
                         }, header: {
                             Text("Grocery Detail")
                         })
@@ -72,8 +74,10 @@ struct DetailNoteView: View {
                                     
                                 })
                                 .keyboardType(.numberPad)
+                                .accessibilityLabel("Input Tax here")
                             } else {
-                                Text(String(Int(note.tax)))
+                                Text(String(Float(note.tax)))
+                                    .accessibilityLabel("Tax \(String(Float(note.tax))) %")
                             }
 
                             
@@ -91,6 +95,7 @@ struct DetailNoteView: View {
                                 }, label: {
                                     Text("Add New Item")
                                 })
+                                    .accessibilityLabel("Click to add New Item")
                             }
                             
                             DetailNoteItemListView(
@@ -124,9 +129,11 @@ struct DetailNoteView: View {
                     .padding(.trailing, 10)
                 }
                 .frame(alignment: .bottom)
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("Subtotal \(String(detNote.totalWithTax()))")
                 
             }
-            .navigationTitle("Detail")
+            .navigationTitle("Detail Note")
             .toolbar(content: {
                 
                 ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarLeading, content: {

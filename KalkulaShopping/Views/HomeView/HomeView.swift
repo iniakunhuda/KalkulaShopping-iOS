@@ -5,6 +5,8 @@
 //  Created by Miftahul Huda on 28/04/22.
 //
 
+// TODO: ada error, ketika edit note -> save -> edit note lg datanya ga berubah
+
 import SwiftUI
 
 struct HomeView: View {
@@ -49,6 +51,7 @@ struct HomeView: View {
                     ], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
                 }
+                .accessibilityLabel("Click to create New Note")
                 
             }
             .navigationTitle("Shopping Note")

@@ -35,6 +35,9 @@ struct DetailNoteItemListView: View {
                         }
                     }
                 }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("Item \(item.name) with price \(String(item.subtotal))" + (note.isActive ? ". Click to edit item" : ""))
+                
             }
         }
     }

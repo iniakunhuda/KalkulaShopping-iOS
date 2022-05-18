@@ -67,12 +67,14 @@ struct AddItemView: View {
                             TextField(text: $itemModel.item.name, prompt: Text("Name"), label: {
                                 Text("Name")
                             })
+                                .accessibilityLabel("Input item name")
                             
                             Picker("Category", selection: $itemModel.item.category) {
                                 ForEach(ItemCategoriesList, id: \.self) {
                                     Text($0)
                                 }
                             }
+                            .accessibilityLabel("Category selected \(itemModel.item.category). Click to edit here")
                         }
                         
                         
@@ -87,6 +89,7 @@ struct AddItemView: View {
                             }.onChange(of: itemModel.item.priceType) { val in
                                 self.priceTypeChanged()
                             }
+                            .accessibilityLabel("Price Type selected \(itemModel.item.priceType.rawValue). Click to edit here")
                             
                             if(isPriceFloat) {
                                 Picker("Weight Unit", selection: $itemModel.item.weightUnit) {
@@ -94,6 +97,7 @@ struct AddItemView: View {
                                         Text(value.rawValue)
                                     }
                                 }
+                                .accessibilityLabel("Weight Unit selected \(itemModel.item.weightUnit.rawValue). Click to edit here")
                                 
                                 TextField(self.weightLabel, text: $itemModel.item.weight, onEditingChanged: { changed in
                                     itemModel.calculateSubtotal()
@@ -105,6 +109,9 @@ struct AddItemView: View {
                                         itemModel.item.weight = filtered
                                     }
                                 }
+                                .accessibilityLabel("Input weight here")
+                                
+                                
                             }
                             
                             TextField(self.priceLabel, text: $itemModel.item.price, onEditingChanged: { changed in
@@ -117,6 +124,7 @@ struct AddItemView: View {
                                     itemModel.item.price = filtered
                                 }
                             }
+                            .accessibilityLabel("Input price item here")
                             
                             TextField(self.quantityLabel, text: $itemModel.item.quantity, onEditingChanged: { changed in
                                 itemModel.calculateSubtotal()
@@ -128,6 +136,7 @@ struct AddItemView: View {
                                     itemModel.item.quantity = filtered
                                 }
                             }
+                            .accessibilityLabel("Input quantity item here")
                                 
                         }
                         
@@ -140,6 +149,7 @@ struct AddItemView: View {
                             }.onChange(of: itemModel.item.discountType) { val in
                                 self.itemModel.item.discountValue = ""
                             }
+                            .accessibilityLabel("Discount type selected \(itemModel.item.discountType.rawValue). Click to edit here")
                             
                             
                             TextField("Discount", text: $itemModel.item.discountValue, onEditingChanged: { changed in
@@ -152,6 +162,7 @@ struct AddItemView: View {
                                     itemModel.item.discountValue = filtered
                                 }
                             }
+                            .accessibilityLabel("Input discount item here")
                             
                         }, header: {
                             Text("Discount")
@@ -161,6 +172,7 @@ struct AddItemView: View {
                         
                         Section(content: {
                             TextEditor(text: $itemModel.item.note)
+                                .accessibilityLabel("Input additional note here")
                         }, header: {
                             Text("Note")
                         })

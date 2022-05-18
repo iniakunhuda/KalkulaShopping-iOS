@@ -19,27 +19,64 @@ struct EditNoteView: View {
         NavigationView {
             VStack {
                 
-                Form {
                     
-                    Section(content: {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("Store Name")
+                        .font(.caption)
+                        .foregroundColor(.gray)
                         
-                        TextField(text: $note.name, prompt: Text("Name"), label: {
-                            Text("Name")
-                        })
-                        
-                        TextField(text: $note.address, prompt: Text("Address"), label: {
-                            Text("Address")
-                        })
-                        DatePicker("Date", selection: $note.date, in: ...Date())
-                        
-                    }, header: {
-                        Text("Grocery Detail")
-                    })
-                    
+                    TextField("", text: $note.name)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 5)
+                        .accessibilityLabel("Input store address here")
                 }
+                Divider()
+                
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("Store Address")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        
+                    TextField("", text: $note.address)
+                        .frame(maxWidth: .infinity)
+                        .padding(.top, 10)
+                        .accessibilityLabel("Input store address here")
+                }
+                .padding(.top, 10)
+                Divider()
+                
+                
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("Date")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        
+                    Text(note.date.formatted(date: .abbreviated, time: .omitted) + ", " + note.date.formatted(date: .omitted, time: .shortened))
+                        .font(.callout)
+                        .padding(.top, 8)
+                        .accessibilityLabel(noteModel.date.formatted(date: .abbreviated, time: .omitted) + ", " + noteModel.date.formatted(date: .omitted, time: .shortened))
+                }
+                .padding(.top, 10)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .overlay(alignment: .bottomTrailing) {
+                    Button {
+                        noteModel.showDatePicker.toggle()
+                    } label: {
+                        Image(systemName: "calendar")
+                            .foregroundColor(.black)
+                            .accessibilityLabel("Click to change date order")
+                    }
+                }
+                .onTapGesture {
+                    noteModel.showDatePicker.toggle()
+                }
+                Divider()
+                
+                Spacer()
                 
             }
-            .navigationTitle("New Note")
+            .padding()
+            .navigationTitle("Edit Note")
             .toolbar(content: {
                 
                 ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarLeading, content: {
@@ -63,11 +100,32 @@ struct EditNoteView: View {
                             self.presentationMode.wrappedValue.dismiss()
                         }
                     }, label: {
-                        Text("Next")
+                        Text("Update")
                     })
                 })
-                
             })
+            
+            
+            .overlay {
+                ZStack {
+                    if noteModel.showDatePicker {
+                        Rectangle()
+                            .fill(.ultraThinMaterial)
+                            .ignoresSafeArea()
+                            .onTapGesture(perform: {
+                                noteModel.showDatePicker = false
+                            })
+                        
+                        DatePicker.init("", selection: $note.date, in: Date.now...Date.distantFuture)
+                            .datePickerStyle(.graphical)
+                            .labelsHidden()
+                            .padding()
+                            .background(.white, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                            .padding()
+                    }
+                }
+                .animation(.easeInOut, value: noteModel.showDatePicker)
+            }
         }
     }
 }
