@@ -17,6 +17,8 @@
 		1A094B22281A481500E69DF4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A094B21281A481500E69DF4 /* Item.swift */; };
 		1A094B28281A4CC700E69DF4 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A094B27281A4CC700E69DF4 /* AddItemView.swift */; };
 		1A3A01BD282DEF9900A97DBB /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3A01BC282DEF9900A97DBB /* EditNoteView.swift */; };
+		1A724D852835EB5900DF5C1F /* KalkulaShopDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A724D832835EB5900DF5C1F /* KalkulaShopDB.xcdatamodeld */; };
+		1A724D872835F1E300DF5C1F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A724D862835F1E300DF5C1F /* Persistence.swift */; };
 		1A928F54282B61DE00DB0A96 /* DetailNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A928F53282B61DE00DB0A96 /* DetailNoteView.swift */; };
 		1A928F56282B697A00DB0A96 /* DetailNoteItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A928F55282B697A00DB0A96 /* DetailNoteItemRowView.swift */; };
 		1A928F58282B6A4700DB0A96 /* DetailNoteItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A928F57282B6A4700DB0A96 /* DetailNoteItemListView.swift */; };
@@ -60,6 +62,8 @@
 		1A094B21281A481500E69DF4 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1A094B27281A4CC700E69DF4 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		1A3A01BC282DEF9900A97DBB /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
+		1A724D842835EB5900DF5C1F /* KalkulaShopDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KalkulaShopDB.xcdatamodel; sourceTree = "<group>"; };
+		1A724D862835F1E300DF5C1F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		1A928F53282B61DE00DB0A96 /* DetailNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoteView.swift; sourceTree = "<group>"; };
 		1A928F55282B697A00DB0A96 /* DetailNoteItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoteItemRowView.swift; sourceTree = "<group>"; };
 		1A928F57282B6A4700DB0A96 /* DetailNoteItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoteItemListView.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 		1A094AEF281A40B300E69DF4 /* KalkulaShopping */ = {
 			isa = PBXGroup;
 			children = (
+				1A724D822835EB1F00DF5C1F /* Database */,
 				1A094B1E281A476100E69DF4 /* Utilities */,
 				1A094B1B281A470900E69DF4 /* Domains */,
 				1A094B1A281A454E00E69DF4 /* Views */,
@@ -232,6 +237,15 @@
 				1A094B27281A4CC700E69DF4 /* AddItemView.swift */,
 			);
 			path = ItemView;
+			sourceTree = "<group>";
+		};
+		1A724D822835EB1F00DF5C1F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				1A724D832835EB5900DF5C1F /* KalkulaShopDB.xcdatamodeld */,
+				1A724D862835F1E300DF5C1F /* Persistence.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		1A928F52282B61D200DB0A96 /* DetailNoteView */ = {
@@ -394,11 +408,13 @@
 			files = (
 				1A92E6342828B35F00004895 /* ModelData.swift in Sources */,
 				1A094AF3281A40B300E69DF4 /* HomeView.swift in Sources */,
+				1A724D872835F1E300DF5C1F /* Persistence.swift in Sources */,
 				1A928F58282B6A4700DB0A96 /* DetailNoteItemListView.swift in Sources */,
 				1A92E63D2828CBEF00004895 /* NoteViewModel.swift in Sources */,
 				1A92E6362828B86700004895 /* NoteListView.swift in Sources */,
 				1A92E63B2828C16B00004895 /* NewNoteView.swift in Sources */,
 				1A92E6322828B31800004895 /* Note.swift in Sources */,
+				1A724D852835EB5900DF5C1F /* KalkulaShopDB.xcdatamodeld in Sources */,
 				1A928F5A282B721400DB0A96 /* ItemViewModel.swift in Sources */,
 				1A928F54282B61DE00DB0A96 /* DetailNoteView.swift in Sources */,
 				1A094B22281A481500E69DF4 /* Item.swift in Sources */,
@@ -733,6 +749,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1A724D832835EB5900DF5C1F /* KalkulaShopDB.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1A724D842835EB5900DF5C1F /* KalkulaShopDB.xcdatamodel */,
+			);
+			currentVersion = 1A724D842835EB5900DF5C1F /* KalkulaShopDB.xcdatamodel */;
+			path = KalkulaShopDB.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1A094AE5281A40B300E69DF4 /* Project object */;
 }

@@ -45,7 +45,7 @@ let ItemCategoriesList = [
 
 // TODO: Tipe data harga atau quantity masih string, how to convert to decimal / float?
 
-struct Item: Identifiable, Hashable {
+struct ItemStruct: Identifiable, Hashable {
     var id: String = UUID().uuidString
     var name: String = ""
     var category: String = ""
@@ -64,8 +64,8 @@ struct Item: Identifiable, Hashable {
     var subtotal: Float!
 }
 
-extension Item {
-    
+extension ItemStruct {
+
     func formatRupiah(nominal: Float) -> String {
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: "id_ID")

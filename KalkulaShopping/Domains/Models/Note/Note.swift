@@ -9,7 +9,7 @@
 
 import Foundation
 
-struct Note: Identifiable, Hashable {
+struct NoteStruct: Identifiable, Hashable {
     var id: String = UUID().uuidString
     var name: String
     var address: String
@@ -20,7 +20,7 @@ struct Note: Identifiable, Hashable {
     var tax: Float
 }
 
-extension Note {
+extension NoteStruct {
     
     func totalInRupiah(nominal: Float) -> String {
         let formatter = NumberFormatter()

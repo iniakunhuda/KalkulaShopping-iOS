@@ -14,11 +14,13 @@ import SwiftUI
 struct KalkulaShoppingApp: App {
     
     @StateObject var modelData: ModelData = ModelData()
+    let persistenceController = PersistenceController.shared
     
     var body: some Scene {
         WindowGroup {
             HomeView()
                 .environmentObject(modelData)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

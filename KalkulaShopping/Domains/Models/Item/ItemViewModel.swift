@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class ItemViewModel: Identifiable, ObservableObject {
     @Published var item: Item
