@@ -61,7 +61,7 @@ struct NewNoteView: View {
                         noteModel.showDatePicker.toggle()
                     } label: {
                         Image(systemName: "calendar")
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             .accessibilityLabel("Click to change date order")
                     }
                 }
@@ -115,7 +115,7 @@ struct NewNoteView: View {
                             .datePickerStyle(.graphical)
                             .labelsHidden()
                             .padding()
-                            .background(.white, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                            .background(.black, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                             .padding()
                             .accessibilityLabel("Choose date & time")
                     }
@@ -123,6 +123,7 @@ struct NewNoteView: View {
                 .animation(.easeInOut, value: noteModel.showDatePicker)
             }
         }
+        .environment(\.colorScheme, .dark)
     }
 }
 

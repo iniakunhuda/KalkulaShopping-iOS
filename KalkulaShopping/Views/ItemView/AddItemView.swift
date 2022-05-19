@@ -190,7 +190,7 @@ struct AddItemView: View {
                         Text(String(itemModel.formatRupiah(nominal: itemModel.subtotal)))
                             .font(.title3)
                             .fontWeight(.bold)
-                            .foregroundColor((itemModel.isSubtotalNil()) ? .red : .black)
+                            .foregroundColor(.red)
                     }
                     .padding()
                     .padding(.leading, 10)
@@ -255,6 +255,7 @@ struct AddItemView: View {
                 
             })
         }
+        .environment(\.colorScheme, .dark)
     }
 }
 

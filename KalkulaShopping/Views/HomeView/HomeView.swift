@@ -37,25 +37,26 @@ struct HomeView: View {
                     .foregroundColor(.white)
                     .padding(.vertical, 12)
                     .padding(.horizontal)
-                    .background(.black, in: Capsule())
+                    .background(.blue, in: Capsule())
                 }
                 
                 // MARK: Gradient
                 .padding(.top, 10)
                 .frame(maxWidth: .infinity)
-                .background{
-                    LinearGradient(colors: [
-                        .white.opacity(0.05),
-                        .white.opacity(0.4),
-                        .white.opacity(0.7)
-                    ], startPoint: .top, endPoint: .bottom)
-                    .ignoresSafeArea()
-                }
+//                .background{
+//                    LinearGradient(colors: [
+//                        .white.opacity(0.05),
+//                        .white.opacity(0.4),
+//                        .white.opacity(0.7)
+//                    ], startPoint: .top, endPoint: .bottom)
+//                    .ignoresSafeArea()
+//                }
                 .accessibilityLabel("Click to create New Note")
                 
             }
             .navigationTitle("Shopping Note")
         }
+        .environment(\.colorScheme, .dark)
         .fullScreenCover(isPresented: $isNavigateToNewNote) {
             NewNoteView()
         }

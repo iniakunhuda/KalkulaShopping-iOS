@@ -24,6 +24,7 @@ struct DetailNoteItemRowView: View {
                         .font(.title2)
                     
                     Text(String(item.formatRupiah(nominal: item.subtotal)))
+                        .font(.caption)
                         .opacity(0.5)
                 }
                 Spacer()

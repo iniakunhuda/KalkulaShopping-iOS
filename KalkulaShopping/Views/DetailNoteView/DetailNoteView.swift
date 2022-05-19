@@ -122,7 +122,7 @@ struct DetailNoteView: View {
                         Text(String(detNote.totalWithTax()))
                             .font(.title3)
                             .fontWeight(.bold)
-                            .foregroundColor((detNote.total < 1) ? .red : .black)
+                            .foregroundColor(.red)
                     }
                     .padding()
                     .padding(.leading, 10)
@@ -164,6 +164,7 @@ struct DetailNoteView: View {
                 EditNoteView(note: note)
             }
         }
+        .environment(\.colorScheme, .dark)
     }
 }
 

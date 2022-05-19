@@ -25,7 +25,7 @@ struct NoteRowView: View {
                         .opacity(0.6)
                     
                     Text(note.totalInRupiah(nominal: note.total))
-                        .font(.system(size: 13))
+                        .font(.caption)
                         .padding(.top, 5)
                 }
                 
@@ -35,7 +35,7 @@ struct NoteRowView: View {
                     isDetailOpen = true
                 }, label: {
                     Image(systemName: "chevron.right")
-                        .foregroundColor(.gray)
+                        .foregroundColor(.white)
                 })
             }
         }

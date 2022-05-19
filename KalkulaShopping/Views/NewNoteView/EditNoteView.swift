@@ -63,7 +63,7 @@ struct EditNoteView: View {
                         noteModel.showDatePicker.toggle()
                     } label: {
                         Image(systemName: "calendar")
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             .accessibilityLabel("Click to change date order")
                     }
                 }
@@ -120,13 +120,14 @@ struct EditNoteView: View {
                             .datePickerStyle(.graphical)
                             .labelsHidden()
                             .padding()
-                            .background(.white, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                            .background(.black, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                             .padding()
                     }
                 }
                 .animation(.easeInOut, value: noteModel.showDatePicker)
             }
         }
+        .environment(\.colorScheme, .dark)
     }
 }
 
