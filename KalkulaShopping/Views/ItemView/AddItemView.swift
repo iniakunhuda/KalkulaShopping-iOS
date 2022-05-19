@@ -211,7 +211,7 @@ struct AddItemView: View {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Text("Back")
+                        Text("Cancel")
                     })
                 })
                 

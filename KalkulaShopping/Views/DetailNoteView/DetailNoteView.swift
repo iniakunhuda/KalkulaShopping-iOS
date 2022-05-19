@@ -151,7 +151,7 @@ struct DetailNoteView: View {
                         self.presentationMode.wrappedValue.dismiss()
                         
                     }, label: {
-                        Text("Save & Close")
+                        Text("Archive")
                     })
                         .hidden(!note.isActive)
                 })

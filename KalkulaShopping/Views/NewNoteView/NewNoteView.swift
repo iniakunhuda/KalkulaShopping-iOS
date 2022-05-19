@@ -96,7 +96,7 @@ struct NewNoteView: View {
                             self.presentationMode.wrappedValue.dismiss()
                         }
                     }, label: {
-                        Text("Next")
+                        Text("Save")
                     })
                 })
             })
