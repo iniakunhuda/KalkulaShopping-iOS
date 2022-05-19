@@ -19,6 +19,10 @@
 		1A3A01BD282DEF9900A97DBB /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3A01BC282DEF9900A97DBB /* EditNoteView.swift */; };
 		1A724D852835EB5900DF5C1F /* KalkulaShopDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A724D832835EB5900DF5C1F /* KalkulaShopDB.xcdatamodeld */; };
 		1A724D872835F1E300DF5C1F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A724D862835F1E300DF5C1F /* Persistence.swift */; };
+		1A724D8C2836009300DF5C1F /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A724D882836009300DF5C1F /* Note+CoreDataClass.swift */; };
+		1A724D8D2836009300DF5C1F /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A724D892836009300DF5C1F /* Note+CoreDataProperties.swift */; };
+		1A724D8E2836009300DF5C1F /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A724D8A2836009300DF5C1F /* Item+CoreDataClass.swift */; };
+		1A724D8F2836009300DF5C1F /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A724D8B2836009300DF5C1F /* Item+CoreDataProperties.swift */; };
 		1A928F54282B61DE00DB0A96 /* DetailNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A928F53282B61DE00DB0A96 /* DetailNoteView.swift */; };
 		1A928F56282B697A00DB0A96 /* DetailNoteItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A928F55282B697A00DB0A96 /* DetailNoteItemRowView.swift */; };
 		1A928F58282B6A4700DB0A96 /* DetailNoteItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A928F57282B6A4700DB0A96 /* DetailNoteItemListView.swift */; };
@@ -64,6 +68,10 @@
 		1A3A01BC282DEF9900A97DBB /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
 		1A724D842835EB5900DF5C1F /* KalkulaShopDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KalkulaShopDB.xcdatamodel; sourceTree = "<group>"; };
 		1A724D862835F1E300DF5C1F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		1A724D882836009300DF5C1F /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1A724D892836009300DF5C1F /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1A724D8A2836009300DF5C1F /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1A724D8B2836009300DF5C1F /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1A928F53282B61DE00DB0A96 /* DetailNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoteView.swift; sourceTree = "<group>"; };
 		1A928F55282B697A00DB0A96 /* DetailNoteItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoteItemRowView.swift; sourceTree = "<group>"; };
 		1A928F57282B6A4700DB0A96 /* DetailNoteItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoteItemListView.swift; sourceTree = "<group>"; };
@@ -242,10 +250,22 @@
 		1A724D822835EB1F00DF5C1F /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				1A724D90283600A300DF5C1F /* Core Data */,
 				1A724D832835EB5900DF5C1F /* KalkulaShopDB.xcdatamodeld */,
 				1A724D862835F1E300DF5C1F /* Persistence.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		1A724D90283600A300DF5C1F /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				1A724D882836009300DF5C1F /* Note+CoreDataClass.swift */,
+				1A724D892836009300DF5C1F /* Note+CoreDataProperties.swift */,
+				1A724D8A2836009300DF5C1F /* Item+CoreDataClass.swift */,
+				1A724D8B2836009300DF5C1F /* Item+CoreDataProperties.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		1A928F52282B61D200DB0A96 /* DetailNoteView */ = {
@@ -406,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A724D8F2836009300DF5C1F /* Item+CoreDataProperties.swift in Sources */,
 				1A92E6342828B35F00004895 /* ModelData.swift in Sources */,
 				1A094AF3281A40B300E69DF4 /* HomeView.swift in Sources */,
 				1A724D872835F1E300DF5C1F /* Persistence.swift in Sources */,
@@ -416,11 +437,14 @@
 				1A92E6322828B31800004895 /* Note.swift in Sources */,
 				1A724D852835EB5900DF5C1F /* KalkulaShopDB.xcdatamodeld in Sources */,
 				1A928F5A282B721400DB0A96 /* ItemViewModel.swift in Sources */,
+				1A724D8E2836009300DF5C1F /* Item+CoreDataClass.swift in Sources */,
 				1A928F54282B61DE00DB0A96 /* DetailNoteView.swift in Sources */,
 				1A094B22281A481500E69DF4 /* Item.swift in Sources */,
+				1A724D8D2836009300DF5C1F /* Note+CoreDataProperties.swift in Sources */,
 				1A928F56282B697A00DB0A96 /* DetailNoteItemRowView.swift in Sources */,
 				1A92E6382828BB5100004895 /* NoteRowView.swift in Sources */,
 				1A094B28281A4CC700E69DF4 /* AddItemView.swift in Sources */,
+				1A724D8C2836009300DF5C1F /* Note+CoreDataClass.swift in Sources */,
 				1A3A01BD282DEF9900A97DBB /* EditNoteView.swift in Sources */,
 				1A094AF1281A40B300E69DF4 /* KalkulaShoppingApp.swift in Sources */,
 			);
