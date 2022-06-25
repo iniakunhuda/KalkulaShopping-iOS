@@ -31,4 +31,33 @@ class NoteViewModel: Identifiable, ObservableObject {
     @Published var tax: Float = 0
     
     @Published var showDatePicker: Bool = false
+    
+    // MARK: Edit note properties
+    @Published var editNote: Note?
+}
+
+extension NoteViewModel {
+    
+    func addNote(context: NSManagedObjectContext) -> Bool {
+        // MARK: Update existing data
+        var note: Note!
+        if let editNote = editNote {
+            note = editNote
+        } else {
+            note = Note(context: context)
+        }
+        
+        note.address = address
+        note.date = date
+        note.name = name
+        note.tax = tax
+        note.total = total
+        note.isActive = true
+        
+        if let _ = try? context.save() {
+            return true
+        }
+        return false
+    }
+    
 }

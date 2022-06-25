@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct NewNoteView: View {
-    
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
         
-    @EnvironmentObject var modelData: ModelData
-    @StateObject var noteModel = NoteViewModel()
+//    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var noteModel: NoteViewModel
+    @Environment(\.self) var env
     
     var body: some View {
         NavigationView {
@@ -78,7 +77,7 @@ struct NewNoteView: View {
                 
                 ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarLeading, content: {
                     Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
+                        env.dismiss()
                     }, label: {
                         Text("Cancel")
                     })
@@ -86,15 +85,10 @@ struct NewNoteView: View {
                 
                 ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarTrailing, content: {
                     Button(action: {
-                        let result = modelData.create(
-                            name: noteModel.name,
-                            address: noteModel.address,
-                            date: noteModel.date
-                        )
                         
-                        if result {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
+                        // MARK: Add note
+                        
+                        env.dismiss()
                     }, label: {
                         Text("Next")
                     })
@@ -130,6 +124,6 @@ struct NewNoteView: View {
 struct NewNoteView_Previews: PreviewProvider {
     static var previews: some View {
         NewNoteView()
-            .environmentObject(ModelData())
+            .environmentObject(NoteViewModel())
     }
 }

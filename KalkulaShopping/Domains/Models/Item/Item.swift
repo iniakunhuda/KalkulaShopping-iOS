@@ -11,23 +11,69 @@ enum ItemFailedMessage: String {
     case InsuffientBalance = "Subtotal must be greater than 0"
 }
 
-enum ItemPriceType: String, CaseIterable {
-    case Fixed = "Fixed"
-    case Float = "Custom (Kg, Liter, etc)"
+@objc enum ItemPriceType: Int, CaseIterable, RawRepresentable {
+    case Fixed
+    case Float
+    
+    public typealias RawValue = String
+    public var rawValue: RawValue {
+        switch self {
+            case .Fixed:
+                return "Fixed"
+            case .Float:
+                return "Custom (Kg, Liter, etc)"
+        }
+    }
+    
+    public init?(rawValue: RawValue) {
+        switch rawValue {
+            case "Fixed":
+                self = .Fixed
+            case "Custom (Kg, Liter, etc)":
+            self = .Float
+            default:
+                return nil
+        }
+    }
     
     var id: ItemPriceType { self }
 }
 
-enum ItemWeightUnit: String, CaseIterable {
-    case None = "None"
-    case Kg = "Kg"
-    case Gram = "Gram"
-    case Liters = "Liters"
+@objc enum ItemWeightUnit: Int, CaseIterable, RawRepresentable {
+    case None
+    case Kg
+    case Gram
+    case Liters
+    
+    public typealias RawValue = String
+    public var rawValue: RawValue {
+        switch self {
+            case .None:
+                return "None"
+            case .Kg:
+                return "Kg"
+            case .Gram:
+                return "Gram"
+            case .Liters:
+                return "Liters"
+        }
+    }
+    
+    public init?(rawValue: RawValue) {
+        switch rawValue {
+            case "Fixed":
+                self = .Fixed
+            case "Custom (Kg, Liter, etc)":
+            self = .Float
+            default:
+                return nil
+        }
+    }
     
     var id: ItemWeightUnit { self }
 }
 
-enum ItemDiscountType: String, CaseIterable {
+@objc enum ItemDiscountType: String, CaseIterable {
     case Fixed = "Fixed"
     case Percentage = "Percentage"
     

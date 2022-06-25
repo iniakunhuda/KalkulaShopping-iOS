@@ -18,8 +18,10 @@ struct KalkulaShoppingApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
-                .environmentObject(modelData)
+            
+            NewNoteView()
+//            HomeView()
+                .environmentObject(NoteViewModel())
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

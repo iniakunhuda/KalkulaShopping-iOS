@@ -17,7 +17,7 @@ struct HomeView: View {
             ScrollView {
                 ScrollViewReader { scroll in
                     VStack(alignment: .leading) {
-                        NoteListView()
+//                        NoteListView()
                     }
                     .frame(minHeight: 900)
                 }

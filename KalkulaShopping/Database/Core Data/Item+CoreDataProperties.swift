@@ -2,7 +2,7 @@
 //  Item+CoreDataProperties.swift
 //  KalkulaShopping
 //
-//  Created by Miftahul Huda on 19/05/22.
+//  Created by Miftahul Huda on 30/05/22.
 //
 //
 
@@ -17,28 +17,30 @@ extension Item {
     }
 
     @NSManaged public var category: String?
-    @NSManaged public var discountType: String?
-    @NSManaged public var discountValue: String?
+    @NSManaged public var discountType: NSObject?
+    @NSManaged public var discountValue: Float
     @NSManaged public var id: UUID?
     @NSManaged public var name: String?
     @NSManaged public var note: String?
-    @NSManaged public var price: String?
-    @NSManaged public var priceType: String?
-    @NSManaged public var quantity: String?
+    @NSManaged public var price: Int16
+    @NSManaged public var priceType: ItemPriceType?
+    @NSManaged public var quantity: Int16
     @NSManaged public var subtotal: Float
-    @NSManaged public var weight: String?
+    @NSManaged public var weight: Float
     @NSManaged public var weightUnit: ItemWeightUnit?
+    
+//    @NSManaged public var priceTypeValue: String?
+//    var priceType: ItemPriceType {
+//        set {
+//            self.priceTypeValue = newValue.rawValue
+//        }
+//        get {
+//            return ItemPriceType(rawValue: self.priceTypeValue!) ?? ItemPriceType.Fixed
+//        }
+//    }
 
-    var weightUnitStatus: ItemWeightUnit {
-        set {
-            weightUnit = ItemWeightUnit.rawValue
-        }
-        get {
-            ItemWeightUnit(rawValue: weightUnit) ?? .None
-        }
-    }
 }
 
 extension Item : Identifiable {
-    
+
 }
